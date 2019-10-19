@@ -1,6 +1,6 @@
 
-# Created by https://www.gitignore.io/api/angular,dotnetcore,visualstudio,visualstudiocode
-# Edit at https://www.gitignore.io/?templates=angular,dotnetcore,visualstudio,visualstudiocode
+# Created by https://www.gitignore.io/api/ionic3,angular,dotnetcore,visualstudio,visualstudiocode
+# Edit at https://www.gitignore.io/?templates=ionic3,angular,dotnetcore,visualstudio,visualstudiocode
 
 ### Angular ###
 ## Angular ##
@@ -42,6 +42,37 @@ e2e/*.map
 /node_modules
 /wwwroot/node_modules
 
+
+### Ionic3 ###
+# Log an tmp data
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+
+# NPM (Node Package Manager) files
+npm-debug.log*
+temp/
+
+# Preprocessors cache files
+.sourcemaps/
+.tmp/
+hooks/
+
+# Ionic 3 plugins files
+platforms/
+plugins/
+plugins/android.json
+plugins/ios.json
+www/
+
+# Trash data
+$RECYCLE.BIN/
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
 
 ### VisualStudioCode ###
 .vscode/*
@@ -138,10 +169,8 @@ StyleCopReport.xml
 *.tlb
 *.tli
 *.tlh
-*.tmp
 *.tmp_proj
 *_wpftmp.csproj
-*.log
 *.vspscc
 *.vssscc
 .builds
@@ -280,7 +309,6 @@ _pkginfo.txt
 # Others
 ClientBin/
 ~$*
-*~
 *.dbmdl
 *.dbproj.schemaview
 *.jfm
@@ -403,4 +431,4 @@ healthchecksdb
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
 
-# End of https://www.gitignore.io/api/angular,dotnetcore,visualstudio,visualstudiocode
+# End of https://www.gitignore.io/api/ionic3,angular,dotnetcore,visualstudio,visualstudiocode
