@@ -7,7 +7,6 @@ import { WeatherService } from '../weather.service';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit {
-  private selectedItem: any;
   private icons = [
     'flask',
     'wifi',
@@ -20,6 +19,7 @@ export class ListPage implements OnInit {
     'bluetooth',
     'build'
   ];
+
   public items: Array<{ title: string; note: string; icon: string }> = [];
   constructor(private data: WeatherService) {
     for (let i = 1; i < 6; i++) {
@@ -29,23 +29,19 @@ export class ListPage implements OnInit {
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       });
     }
+
     data.getWeather().subscribe(res => {
       res.forEach(item => this.items.push({
         title: `The Weather for ${item['date']}`,
         note: `Will be ${item['temperatureF']} degrees and ${item['summary']}`,
         icon: this.icons[Math.floor(Math.random() * this.icons.length)]
       }))
-      console.log(res)
-    }
-    );
-    console.log("Star Wars flims here");
+    });
+
     data.getStarWars().subscribe(res => console.log(res));
   }
 
   ngOnInit() {
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
 }
