@@ -7,6 +7,10 @@
         </ion-toolbar>
       </ion-header>
       <ion-content>
+        <ion-button (click)="auth.login()" *ngIf="!auth.loggedIn">
+          <ion-icon slot="start" name="log-in"></ion-icon>
+          Login
+        </ion-button>
         <ion-list>
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
@@ -17,6 +21,10 @@
             </ion-item>
           </ion-menu-toggle>
         </ion-list>
+        <ion-button (click)="auth.logout()" *ngIf="auth.loggedIn">
+          Logout
+          <ion-icon slot="end" name="log-out"></ion-icon>
+        </ion-button>
       </ion-content>
     </ion-menu>
     <ion-router-outlet main></ion-router-outlet>
