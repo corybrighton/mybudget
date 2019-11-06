@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Weather } from './Weather';
+import { server } from 'src/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,7 +18,7 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   getWeather(): Observable<any> {
-    return this.http.get("https://localhost:5001/weatherforecast/", httpOptions);
+    return this.http.get(server + "weatherforecast/", httpOptions);
   }
 
   getStarWars(): Observable<any> {

@@ -32,7 +32,9 @@ namespace mybudget
         options.AddPolicy(AllowLocalHost,
         builder =>
         {
-          builder.WithOrigins("http://localhost:8100").AllowAnyHeader().AllowAnyMethod();
+          builder.WithOrigins("http://localhost:8100")
+          .AllowAnyHeader()
+          .AllowAnyMethod();
         });
       });
       services.AddControllers();
