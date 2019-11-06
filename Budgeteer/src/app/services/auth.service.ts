@@ -1,10 +1,9 @@
-// src/app/services/auth.service.ts
 import { Injectable, NgZone } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { SafariViewController } from '@ionic-native/safari-view-controller/ngx';
 
 // Import AUTH_CONFIG, Auth0Cordova, and auth0.js
-import { AUTH_CONFIG } from '../auth.config';
+import { AUTH_CONFIG } from './auth.config';
 import Auth0Cordova from '@auth0/cordova';
 import * as auth0 from 'auth0-js';
 
@@ -77,23 +76,23 @@ export class AuthService {
         const domain = AUTH_CONFIG.domain;
         const clientId = AUTH_CONFIG.clientId;
         const pkgId = AUTH_CONFIG.packageIdentifier;
-        let url = `https://${domain}/v2/logout?client_id=${clientId}&returnTo=${pkgId}://${domain}/cordova/${pkgId}/callback`;
+        let url = `https://$dev-4q9ch1pp.auth0.com/v2/logout?client_id=${clientId}&returnTo=${pkgId}://$dev-4q9ch1pp.auth0.com/cordova/${pkgId}/callback`;
         if (available) {
           this.safariViewController.show({
             url: url
           })
-            .subscribe((result: any) => {
-              if (result.event === 'opened') console.log('Opened');
-              else if (result.event === 'loaded') console.log('Loaded');
-              else if (result.event === 'closed') console.log('Closed');
+          .subscribe((result: any) => {
+              if(result.event === 'opened') console.log('Opened');
+              else if(result.event === 'loaded') console.log('Loaded');
+              else if(result.event === 'closed') console.log('Closed');
             },
-              (error: any) => console.error(error)
-            );
+            (error: any) => console.error(error)
+          );
         } else {
           // use fallback browser
           cordova.InAppBrowser.open(url, '_system');
         }
       }
-      );
+    );
   }
 }

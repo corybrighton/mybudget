@@ -4,26 +4,19 @@ import { RouteReuseStrategy } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
-import { SafariViewController } from '@ionic-native/safari-view-controller/ngx'
+import { SafariViewController } from '@ionic-native/safari-view-controller/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
-import { HttpClientModule } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { from } from 'rxjs';
+import { AppComponent } from './app.component';
+
 import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    IonicStorageModule.forRoot(),
-    IonicModule.forRoot(),
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule],
   providers: [
     AuthService,
     SafariViewController,
@@ -33,4 +26,4 @@ import { AuthService } from './services/auth.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

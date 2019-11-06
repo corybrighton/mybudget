@@ -1,5 +1,5 @@
 {
-  "name": "Budgeteer",
+  "name": "auth0-app",
   "integrations": {
     "cordova": {}
   },
