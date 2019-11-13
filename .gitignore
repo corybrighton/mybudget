@@ -432,3 +432,5 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/ionic3,angular,dotnetcore,visualstudio,visualstudiocode
+Budgeteer/src/environments/environment.prod.ts
+Budgeteer/src/environments/environment.ts
