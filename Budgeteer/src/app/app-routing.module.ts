@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from './serverices/auth.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
+import { WeatherComponent } from './weather/weather.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'weather',
+    component: WeatherComponent
   }
 ];
 
