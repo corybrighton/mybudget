@@ -1,1 +1,13 @@
-<p>main works!</p>
+<button (click)="sidenav.toggle()">open</button>
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
+    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-profile *ngIf="openedDrawer == 'profile'"></app-profile>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
