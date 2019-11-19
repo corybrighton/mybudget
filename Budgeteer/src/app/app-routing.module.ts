@@ -4,12 +4,18 @@ import { AuthService } from './serverices/auth.service';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
 import { WeatherComponent } from './weather/weather.component';
+import { MainComponent } from './main/main.component';
 
 
 const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'budget',
+    component: MainComponent,
     canActivate: [AuthGuard]
   },
   {
