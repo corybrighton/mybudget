@@ -12,9 +12,7 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.weatherforecast.getweather().subscribe(res => {
-      console.log("weather component");
-      console.log(res)
-      this.weather = res
+      this.weather = res;
     });
   }
 

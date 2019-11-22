@@ -1,13 +1,39 @@
-<button (click)="sidenav.toggle()">open</button>
+<mat-toolbar color="primary">
+
+  <button mat-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="center-header">Budgeteer</span>
+</mat-toolbar>
+
 <mat-sidenav-container class="example-container">
 
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
-    <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</button>
-    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
+    <mat-list>
+      <mat-list-item>
+
+        <!-- Logging buttons -->
+        <button mat-raised-button color="accent" (click)="auth.login()" *ngIf="!auth.loggedIn">
+          Log In
+        </button>
+        <button mat-raised-button color="accent" (click)="auth.logout()" *ngIf="auth.loggedIn">
+          Log Out
+        </button>
+      </mat-list-item>
+      <mat-list-item>
+
+        <button mat-raised-button color="accent" (click)="openDrawer('weather')">Weather</button>
+      </mat-list-item>
+      <mat-list-item>
+
+        <button mat-raised-button color="accent" (click)="openDrawer('profile')">Profile</button>
+      </mat-list-item>
+    </mat-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <app-profile *ngIf="openedDrawer == 'profile'"></app-profile>
+    <app-weather *ngIf="openedDrawer == 'weather'"></app-weather>
   </mat-sidenav-content>
 
 </mat-sidenav-container>
