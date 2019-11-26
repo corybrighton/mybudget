@@ -10,24 +10,27 @@
 
   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
     <mat-list>
+
       <mat-list-item>
 
-        <!-- Logging buttons -->
-        <button mat-raised-button color="accent" (click)="auth.login()" *ngIf="!auth.loggedIn">
-          Log In
-        </button>
-        <button mat-raised-button color="accent" (click)="auth.logout()" *ngIf="auth.loggedIn">
-          Log Out
-        </button>
       </mat-list-item>
-      <mat-list-item>
 
+      <!-- Weather Button -->
+      <mat-list-item>
         <button mat-raised-button color="accent" (click)="openDrawer('weather')">Weather</button>
       </mat-list-item>
-      <mat-list-item>
 
+      <!-- Profile Button -->
+      <mat-list-item>
         <button mat-raised-button color="accent" (click)="openDrawer('profile')">Profile</button>
       </mat-list-item>
+
+      <mat-list-item>
+        <pre>
+          <code>{{ accounts | json }}</code>
+        </pre>
+      </mat-list-item>
+
     </mat-list>
   </mat-sidenav>
 

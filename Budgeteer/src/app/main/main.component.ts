@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../serverices/auth.service';
+import { AuthService } from '../services/auth.service';
+import { AccountsService } from '../services/accounts.service';
 
 @Component({
   selector: 'app-main',
@@ -7,6 +8,7 @@ import { AuthService } from '../serverices/auth.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  accounts;
   opened = true;
   private drawers = {
     profile: "profile",
@@ -14,15 +16,20 @@ export class MainComponent implements OnInit {
   }
   openedDrawer: string = this.drawers.profile;
 
-  constructor(private auth: AuthService) { }
+  constructor(private accountS: AccountsService) { }
 
   ngOnInit() {
+    this.getAccounts();
   }
 
   openDrawer(drawer: string) {
     if (this.drawers.hasOwnProperty(drawer)) {
       this.openedDrawer = this.drawers[drawer];
     }
+  }
+
+  getAccounts() {
+    this.accountS.getAccounts().subscribe(res => this.accounts = res);
   }
 
 }

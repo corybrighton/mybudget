@@ -1,3 +1,12 @@
-<pre *ngIf="auth.userProfile$ | async as profile">
-<code>{{ profile | json }}</code>
-</pre>
+<div>
+  <pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{ profile | json }}</code>
+  </pre>
+  <!-- Log Button -->
+  <button mat-raised-button color="accent" (click)="auth.login()" *ngIf="!auth.loggedIn">
+    Log In
+  </button>
+  <button mat-raised-button color="accent" (click)="auth.logout()" *ngIf="auth.loggedIn">
+    Log Out
+  </button>
+</div>
