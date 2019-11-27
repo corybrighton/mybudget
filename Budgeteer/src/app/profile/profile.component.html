@@ -4,9 +4,11 @@
   </pre>
   <!-- Log Button -->
   <button mat-raised-button color="accent" (click)="auth.login()" *ngIf="!auth.loggedIn">
-    Log In
+    <mat-icon>person_outline</mat-icon>
+    Logged Out
   </button>
   <button mat-raised-button color="accent" (click)="auth.logout()" *ngIf="auth.loggedIn">
-    Log Out
+    <mat-icon>how_to_reg</mat-icon>
+    Logged In
   </button>
 </div>

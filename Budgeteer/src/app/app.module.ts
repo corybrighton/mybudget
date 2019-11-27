@@ -16,13 +16,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponent } from './weather/weather.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MainComponent } from './main/main.component';
+import { AccountsComponent } from './accounts/accounts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     WeatherComponent,
-    MainComponent
+    MainComponent,
+    AccountsComponent
   ],
   imports: [
     BrowserModule,

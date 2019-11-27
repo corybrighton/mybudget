@@ -12,11 +12,12 @@ export class MainComponent implements OnInit {
   opened = true;
   private drawers = {
     profile: "profile",
-    weather: "weather"
+    weather: "weather",
+    accounts: "accounts"
   }
   openedDrawer: string = this.drawers.profile;
 
-  constructor(private accountS: AccountsService) { }
+  constructor(private accountService: AccountsService) { }
 
   ngOnInit() {
     this.getAccounts();
@@ -29,7 +30,7 @@ export class MainComponent implements OnInit {
   }
 
   getAccounts() {
-    this.accountS.getAccounts().subscribe(res => this.accounts = res);
+    this.accountService.getAccounts().subscribe(res => this.accounts = res);
   }
 
 }
