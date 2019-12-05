@@ -18,6 +18,9 @@ export class AccountsService {
 
   constructor(private http: HttpClient) { }
 
+  getAccountFlow(): Observable<any> {
+    return this.http.get(site + "/flow", httpOptions);
+  }
   getAccounts(): Observable<any> {
     return this.http.get(site, httpOptions);
   }

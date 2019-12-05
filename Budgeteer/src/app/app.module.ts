@@ -5,18 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatGridListModule } from '@angular/material/grid-list';
+import {
+  MatIconModule, MatCardModule, MatListModule,
+  MatButtonModule, MatToolbarModule, MatSidenavModule, MatGridListModule
+} from '@angular/material';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponent } from './weather/weather.component';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { MainComponent } from './main/main.component';
 import { AccountsComponent } from './accounts/accounts.component';
+import { AccountComponent } from './accounts/account/account.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,8 @@ import { AccountsComponent } from './accounts/accounts.component';
     ProfileComponent,
     WeatherComponent,
     MainComponent,
-    AccountsComponent
+    AccountsComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +33,7 @@ import { AccountsComponent } from './accounts/accounts.component';
     MatSidenavModule,
     MatButtonModule,
     MatListModule,
+    MatCardModule,
     MatIconModule,
     MatGridListModule,
     MatToolbarModule,

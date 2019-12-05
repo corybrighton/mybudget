@@ -8,14 +8,14 @@ import { AccountsService } from '../services/accounts.service';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  accounts;
+  accountFlow;
   opened = true;
   private drawers = {
     profile: "profile",
     weather: "weather",
     accounts: "accounts"
   }
-  openedDrawer: string = this.drawers.profile;
+  openedDrawer: string = this.drawers.accounts;
 
   constructor(private accountService: AccountsService) { }
 
@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
   }
 
   getAccounts() {
-    this.accountService.getAccounts().subscribe(res => this.accounts = res);
+    this.accountService.getAccountFlow().subscribe(res => this.accountFlow = res);
   }
 
 }

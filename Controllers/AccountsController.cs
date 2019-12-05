@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using mybudget.Models;
 
 namespace mybudget.Controllers
 {
@@ -15,19 +16,30 @@ namespace mybudget.Controllers
 
     // GET api/Accounts
     [HttpGet]
-    public decimal Get()
+    public ActionResult<Account> Get()
     {
-      return 10.5M;
+      Account account = new Account()
+      {
+        Balance = 15.75M,
+        BankID = 1,
+        ID = 1,
+        Name = "Savings",
+        Uncleared = 1.23M,
+        UserID = "user"
+      };
+      return Ok(account);
     }
 
-    // [HttpGet("mykeeps")]
-    // public ActionResult<IEnumerable<Keep>> GetMyKeeps()
-    // {
-    //   string user = HttpContext.User.Identity.Name;
-    //   if (user != null)
-    //     return Ok(_repo.GetUsersKeeps(user));
-    //   return Unauthorized("You need to log in to get keeps");
-    // }
+    //Get api/Accounts/flow
+    [HttpGet("flow")]
+    public ActionResult<decimal> GetAccounts()
+    {
+      // string user = HttpContext.User.Identity.Name;
+      // return (user is null) ? 
+      // Unauthorized("You need to log in to get keeps") :
+      // Ok(_repo.GetUsersKeeps(user));
+      return Ok(100.5M);
+    }
 
     // GET api/Keeps/5
     // [HttpGet("{id}")]

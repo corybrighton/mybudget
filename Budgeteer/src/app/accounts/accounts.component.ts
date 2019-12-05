@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountsService } from '../services/accounts.service';
+import { Account } from '../models/account';
 
 @Component({
   selector: 'app-accounts',
@@ -8,7 +9,7 @@ import { AccountsService } from '../services/accounts.service';
 })
 export class AccountsComponent implements OnInit {
 
-  accounts;
+  accounts: Account[];
 
   constructor(private accountservice: AccountsService) { }
 
