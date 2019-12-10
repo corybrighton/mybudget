@@ -15,7 +15,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { WeatherComponent } from './weather/weather.component';
 import { MainComponent } from './main/main.component';
 import { AccountsComponent } from './accounts/accounts.component';
-import { AccountComponent } from './accounts/account/account.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +22,7 @@ import { AccountComponent } from './accounts/account/account.component';
     ProfileComponent,
     WeatherComponent,
     MainComponent,
-    AccountsComponent,
-    AccountComponent
+    AccountsComponent
   ],
   imports: [
     BrowserModule,

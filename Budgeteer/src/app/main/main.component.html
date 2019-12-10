@@ -44,7 +44,7 @@
   <mat-sidenav-content>
     <app-profile *ngIf="openedDrawer == 'profile'"></app-profile>
     <app-weather *ngIf="openedDrawer == 'weather'"></app-weather>
-    <app-accounts *ngIf="openedDrawer == 'accounts'"></app-accounts>
+    <app-accounts class="accounts_container" *ngIf="openedDrawer == 'accounts'"></app-accounts>
   </mat-sidenav-content>
 
 </mat-sidenav-container>

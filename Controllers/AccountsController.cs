@@ -16,7 +16,7 @@ namespace mybudget.Controllers
 
     // GET api/Accounts
     [HttpGet]
-    public ActionResult<Account> Get()
+    public ActionResult<List<Account>> Get()
     {
       Account account = new Account()
       {
@@ -24,10 +24,32 @@ namespace mybudget.Controllers
         BankID = 1,
         ID = 1,
         Name = "Savings",
+        Uncleared = 0.23M,
+        UserID = "user"
+      };
+      Account account1 = new Account()
+      {
+        Balance = 15.75M,
+        BankID = 1,
+        ID = 1,
+        Name = "Checking",
         Uncleared = 1.23M,
         UserID = "user"
       };
-      return Ok(account);
+      Account account2 = new Account()
+      {
+        Balance = 15.75M,
+        BankID = 2,
+        ID = 1,
+        Name = "Savings",
+        Uncleared = 2.23M,
+        UserID = "user"
+      };
+      List<Account> accounts = new List<Account>();
+      accounts.Add(account);
+      accounts.Add(account1);
+      accounts.Add(account2);
+      return Ok(accounts);
     }
 
     //Get api/Accounts/flow
