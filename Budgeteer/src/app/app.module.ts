@@ -7,7 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatIconModule, MatCardModule, MatListModule,
-  MatButtonModule, MatToolbarModule, MatSidenavModule, MatGridListModule
+  MatButtonModule, MatToolbarModule, MatSidenavModule, MatGridListModule, MatProgressSpinnerModule
 } from '@angular/material';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -30,6 +30,7 @@ import { AccountsComponent } from './accounts/accounts.component';
     HttpClientModule,
     MatSidenavModule,
     MatButtonModule,
+    MatProgressSpinnerModule,
     MatListModule,
     MatCardModule,
     MatIconModule,
