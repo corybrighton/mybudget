@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Bank } from '../models/bank';
 
 
-const site = environment.site + "/api/accounts";
+const site = environment.site + "accounts";
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -21,7 +23,21 @@ export class AccountsService {
   getAccountFlow(): Observable<any> {
     return this.http.get(site + "/flow", httpOptions);
   }
+
   getAccounts(): Observable<any> {
     return this.http.get(site, httpOptions);
+  }
+
+  addBank(newBank: Bank): Observable<any> {
+    return this.http.post<string>(site, newBank, httpOptions)
+      .pipe(
+        catchError(this.handleError("addBank", newBank))
+      );
+  }
+
+
+  handleError(name: string, object: any): (err: any, caught: Observable<any>) => import("rxjs").ObservableInput<any> {
+    console.log(`${name} did not work.`);
+    return
   }
 }

@@ -1,55 +1,25 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using mybudget.Models;
+using mybudget.Repositories;
 
 namespace mybudget.Controllers
 {
-  [Route("api/[controller]")]
+  [Route("api/v1/[controller]")]
   [ApiController]
   public class AccountsController : ControllerBase
   {
-    // private readonly KeepRepository _repo;
-    // public KeepsController(KeepRepository repo)
-    // {
-    // _repo = repo;
-    // }
+    private readonly AccountsRepository _repo;
+    public AccountsController(AccountsRepository repo)
+    {
+      _repo = repo;
+    }
 
     // GET api/Accounts
     [HttpGet]
-    public ActionResult<List<Account>> Get()
+    public ActionResult<List<Bank>> Get()
     {
-      Account account = new Account()
-      {
-        Balance = 15.75M,
-        BankID = 1,
-        ID = 1,
-        Name = "Savings",
-        Uncleared = 0.23M,
-        UserID = "user"
-      };
-      Account account1 = new Account()
-      {
-        Balance = 15.75M,
-        BankID = 1,
-        ID = 1,
-        Name = "Checking",
-        Uncleared = 1.23M,
-        UserID = "user"
-      };
-      Account account2 = new Account()
-      {
-        Balance = 15.75M,
-        BankID = 2,
-        ID = 1,
-        Name = "Savings",
-        Uncleared = 2.23M,
-        UserID = "user"
-      };
-      List<Account> accounts = new List<Account>();
-      accounts.Add(account);
-      accounts.Add(account1);
-      accounts.Add(account2);
-      return Ok(accounts);
+      return Ok(_repo.GetUsersAccounts());
     }
 
     //Get api/Accounts/flow
@@ -60,7 +30,7 @@ namespace mybudget.Controllers
       // return (user is null) ? 
       // Unauthorized("You need to log in to get keeps") :
       // Ok(_repo.GetUsersKeeps(user));
-      return Ok(100.5M);
+      return Ok(_repo.GetFlow());
     }
 
     // GET api/Keeps/5
@@ -78,15 +48,16 @@ namespace mybudget.Controllers
     //   }
     // }
 
-    // POST api/Keeps
-    // [HttpPost]
-    // public ActionResult<string> Post([FromBody] Keep keep)
-    // {
-    //   keep.UserId = HttpContext.User.Identity.Name;
-    //   if (keep.UserId != null)
-    //     return Ok(_repo.AddKeep(keep));
-    //   return Unauthorized();
-    // }
+    // POST New Bank
+    [HttpPost]
+    public ActionResult<Bank> Post([FromBody] Bank bank)
+    {
+      // keep.UserId = HttpContext.User.Identity.Name;
+      // if (keep.UserId != null)
+      //   return Ok(_repo.AddKeep(keep));
+      // return Unauthorized();
+      return Ok(bank);
+    }
 
     // PUT api/Keeps/5
     // [HttpPut("{id}")]
