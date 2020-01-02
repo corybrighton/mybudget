@@ -1,38 +1,39 @@
-<div>
-  <mat-grid-list cols="12">
+<mat-grid-list cols="12" rowHeight="240px" guttersize="23px">
 
-    <mat-grid-tile colspan="3">
-      <mat-card *ngIf="!accounts">
+    <mat-grid-tile colspan="6" *ngIf="!banks">
         <mat-spinner></mat-spinner>
-      </mat-card>
-      <mat-card *ngIf="accounts">
-        <mat-card-title>
-          {{accounts[0].bankID}}
-        </mat-card-title>
-        <mat-card-content>
-          <p>
-            {{accounts[0].name}}
-            {{accounts[0].balance}}
-          </p>
-          {{accounts[1].name}}
-          {{accounts[1].balance}}
-        </mat-card-content>
-      </mat-card>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="3">
-      <mat-card>
-        <mat-card-title>
-          <!-- {{accounts[2].bankID}} -->
-        </mat-card-title>
-        <mat-card-content>
-          <!-- {{accounts[2].name}}
-          {{accounts[2].balance}} -->
-        </mat-card-content>
-      </mat-card>
+    <mat-grid-tile colspan="3" *ngFor="let bank of banks">
+        <mat-card>
+            <mat-card-title>
+                {{ bank.name }}
+            </mat-card-title>
+            <mat-card-subtitle>
+                Total: {{ bank.total }}
+            </mat-card-subtitle>
+            <mat-icon>delete_forever</mat-icon>
+            <mat-icon>edit</mat-icon>
+            <mat-icon>save_alt</mat-icon>
+            <mat-card-content>
+                <p *ngFor="let account of bank.accounts">
+                    {{account.name}} {{account.balance}}
+                </p>
+            </mat-card-content>
+        </mat-card>
     </mat-grid-tile>
-  </mat-grid-list>
-  <pre>
-    <code>{{ accounts | json }}</code>
-  </pre>
-</div>
+
+    <mat-grid-tile colspan="9">
+
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3" *ngIf="banks">
+        <button mat-fab ripple color="primary" (click)="addBank()">
+      <mat-icon aria-hidden="false">add</mat-icon>
+    </button>
+    </mat-grid-tile>
+    <!-- <mat-grid-tile colspan="3">
+    <pre>
+      <code>{{ banks | json }}</code>
+    </pre>
+  </mat-grid-tile> -->
+</mat-grid-list>
