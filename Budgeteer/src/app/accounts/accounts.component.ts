@@ -10,6 +10,7 @@ import { Bank } from '../models/bank';
 export class AccountsComponent implements OnInit {
 
   banks: Bank[];
+  editing: boolean = false;
 
   constructor(private accountservice: AccountsService) { }
 
@@ -17,7 +18,29 @@ export class AccountsComponent implements OnInit {
     this.accountservice.getAccounts().subscribe(res => this.banks = res)
   }
 
+  editBank() {
+    this.editing = !this.editing;
+  }
+
   addBank() {
+    let newBank: Bank =
+    {
+      "name": "New Bank",
+      "accounts": [
+        {
+          "ID": 1,
+          "Name": "Savings",
+          "BankID": 1,
+          "Uncleared": 0.23,
+          "Balance": 43.75
+        }
+      ],
+      "total": 102.1
+    }
+    this.banks.push(newBank);
+  }
+
+  saveBank() {
     let newBank: Bank =
     {
       "name": "New Bank",

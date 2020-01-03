@@ -1,32 +1,40 @@
-<mat-grid-list cols="12" rowHeight="240px" guttersize="23px">
+<mat-grid-list cols="4" rowHeight="240px" guttersize="23px">
 
-    <mat-grid-tile colspan="6" *ngIf="!banks">
+    <mat-grid-tile colspan="4" *ngIf="!banks">
         <mat-spinner></mat-spinner>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="3" *ngFor="let bank of banks">
+    <mat-grid-tile *ngFor="let bank of banks">
         <mat-card>
             <mat-card-title>
                 {{ bank.name }}
             </mat-card-title>
             <mat-card-subtitle>
-                Total: {{ bank.total }}
+                <span>
+                    Total: {{ bank.total }}
+                </span>
+                <span *ngIf="!editing">
+                    <mat-icon class="pointer" (click)="editBank()">edit</mat-icon>
+                </span>
+                <span *ngIf="editing">
+                    <mat-icon class="pointer">delete_forever</mat-icon>
+                    <mat-icon class="pointer">save_alt</mat-icon>
+                </span>
             </mat-card-subtitle>
-            <mat-icon>delete_forever</mat-icon>
-            <mat-icon>edit</mat-icon>
-            <mat-icon>save_alt</mat-icon>
             <mat-card-content>
-                <p *ngFor="let account of bank.accounts">
-                    {{account.name}} {{account.balance}}
+                <p *ngFor="let account of bank.accounts" class="fullWidth">
+                    <span class="leftAlign">
+                        {{account.name}} 
+                    </span>
+                    <span class="rightAlign">
+                        {{account.balance}}
+                    </span>
                 </p>
             </mat-card-content>
         </mat-card>
     </mat-grid-tile>
 
-    <mat-grid-tile colspan="9">
-
-    </mat-grid-tile>
-    <mat-grid-tile colspan="3" *ngIf="banks">
+    <mat-grid-tile *ngIf="banks">
         <button mat-fab ripple color="primary" (click)="addBank()">
       <mat-icon aria-hidden="false">add</mat-icon>
     </button>
