@@ -6,19 +6,22 @@
 
     <mat-grid-tile *ngFor="let bank of banks">
         <mat-card>
-            <mat-card-title>
-                {{ bank.name }}
-            </mat-card-title>
+            <ng-container class="fullWidth">
+                <mat-card-title class="leftAlign">
+                    {{ bank.name }}
+                </mat-card-title>
+                <span *ngIf="!editing" class="rightAlign">
+                    <mat-icon class="pointer" (click)="editBank()">edit</mat-icon>
+                </span>
+                <span *ngIf="editing" class="rightAlign">
+                    <mat-icon class="pointer">delete_forever</mat-icon>
+                    <mat-icon class="pointer">save_alt</mat-icon>
+                </span>
+            </ng-container>
+
             <mat-card-subtitle>
                 <span>
                     Total: {{ bank.total }}
-                </span>
-                <span *ngIf="!editing">
-                    <mat-icon class="pointer" (click)="editBank()">edit</mat-icon>
-                </span>
-                <span *ngIf="editing">
-                    <mat-icon class="pointer">delete_forever</mat-icon>
-                    <mat-icon class="pointer">save_alt</mat-icon>
                 </span>
             </mat-card-subtitle>
             <mat-card-content>

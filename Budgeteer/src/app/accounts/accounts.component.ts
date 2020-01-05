@@ -25,17 +25,17 @@ export class AccountsComponent implements OnInit {
   addBank() {
     let newBank: Bank =
     {
-      "name": "New Bank",
-      "accounts": [
+      name: "New Bank",
+      accounts: [
         {
-          "ID": 1,
-          "Name": "Savings",
-          "BankID": 1,
-          "Uncleared": 0.23,
-          "Balance": 43.75
+          ID: 1,
+          Name: "Savings",
+          BankID: 1,
+          Uncleared: 0.23,
+          Balance: 43.75
         }
       ],
-      "total": 102.1
+      total: 102.1
     }
     this.banks.push(newBank);
   }
