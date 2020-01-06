@@ -35,6 +35,13 @@ export class AccountsService {
       );
   }
 
+  editBank(bank: Bank) {
+    return this.http.put<string>(site + "/" + bank.ID, bank, httpOptions)
+      .pipe(
+        catchError(this.handleError("Edit Bank", bank))
+      );
+  }
+
 
   handleError(name: string, object: any): (err: any, caught: Observable<any>) => import("rxjs").ObservableInput<any> {
     console.log(`${name} did not work.`);

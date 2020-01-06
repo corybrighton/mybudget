@@ -3,8 +3,8 @@
     <mat-icon class="pointer" (click)="editBank()">edit</mat-icon>
   </span>
     <span *ngIf="editing" class="justify-end">
-    <mat-icon class="pointer">delete_forever</mat-icon>
-    <mat-icon class="pointer">save_alt</mat-icon>
+    <mat-icon class="pointer" (click)="deleteBank()">delete_forever</mat-icon>
+    <mat-icon class="pointer" (click)="saveBank()">save_alt</mat-icon>
   </span>
     <mat-card-title> {{ bank.name }} </mat-card-title>
 

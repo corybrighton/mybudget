@@ -25,6 +25,7 @@ export class AccountsComponent implements OnInit {
   addBank() {
     let newBank: Bank =
     {
+      ID: 4,
       name: "New Bank",
       accounts: [
         {
@@ -43,6 +44,7 @@ export class AccountsComponent implements OnInit {
   saveBank() {
     let newBank: Bank =
     {
+      ID: 12,
       "name": "New Bank",
       "accounts": [
         {
