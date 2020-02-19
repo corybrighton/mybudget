@@ -86,6 +86,11 @@ namespace mybudget.Repositories
       return total;
     }
 
+    public Bank editBank(Bank bank)
+    {
+      return bank;
+    }
+
     // public IEnumerable<Keep> GetUsersKeeps(string user)
     // {
     //   return _db.Query<Keep>("SELECT * FROM keeps WHERE userId = @user", new { user });
@@ -135,11 +140,11 @@ namespace mybudget.Repositories
     //     return burger;
     //   }
 
-    // public bool DeleteKeep(int id, string userId)
-    // {
-    //   int exe = _db.Execute($"DELETE FROM Keeps WHERE id = @id AND userId = @userId", new { id, userId });
-    //   Console.WriteLine(exe);
-    //   return exe != 0;
-    // }
+    public bool DeleteBank(int id)
+    {
+      // int exe = _db.Execute($"DELETE FROM Keeps WHERE id = @id AND userId = @userId", new { id, userId });
+      // return exe != 0;
+      return true;
+    }
   }
 }

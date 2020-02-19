@@ -15,14 +15,14 @@ namespace mybudget.Controllers
       _repo = repo;
     }
 
-    // GET api/Accounts
+    // GET Accounts
     [HttpGet]
     public ActionResult<List<Bank>> Get()
     {
       return Ok(_repo.GetUsersAccounts());
     }
 
-    //Get api/Accounts/flow
+    //Get Accounts/flow
     [HttpGet("flow")]
     public ActionResult<decimal> GetAccounts()
     {
@@ -33,7 +33,7 @@ namespace mybudget.Controllers
       return Ok(_repo.GetFlow());
     }
 
-    // GET api/Keeps/5
+    // GET Keeps/5
     // [HttpGet("{id}")]
     // public ActionResult<Keep> Get(int id)
     // {
@@ -59,20 +59,21 @@ namespace mybudget.Controllers
       return Ok(bank);
     }
 
-    // PUT api/Keeps/5
-    // [HttpPut("{id}")]
-    // public ActionResult<string> Put(int id)
-    // {
-    //   return Ok(_repo.UpdateKeepShares(id));
-    // }
+    // PUT accounts/5
+    [HttpPut]
+    public ActionResult<Bank> Put([FromBody]Bank bank)
+    {
+      return Ok(_repo.editBank(bank));
+    }
 
-    // DELETE api/Burgers/5
-    // [HttpDelete("{id}")]
-    // public ActionResult<string> Delete(int id)
-    // {
-    //   if (_repo.DeleteKeep(id, HttpContext.User.Identity.Name)) { return Ok("Successfully Deleted"); }
-    //   return BadRequest("Unable to Delete");
-    // }
+    // DELETE accounts/5
+    [HttpDelete("{id}")]
+    public ActionResult<string> Delete(int id)
+    {
+      if (_repo.DeleteBank(id)) { return Ok("Succssful Deleted"); }
+      // if (_repo.DeleteBank(id, HttpContext.User.Identity.Name)) { return Ok("Successfully Deleted"); }
+      return BadRequest("Unable to Delete");
+    }
 
   }
 }
