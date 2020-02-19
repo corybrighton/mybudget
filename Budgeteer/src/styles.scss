@@ -1,0 +1,61 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+
+$md-accent: ( 50: #f9f3e8, 100: #f1e1c5, 200: #e8cd9f, 300: #dfb979, 400: #d8aa5c, 500: #d19b3f, 600: #cc9339, 700: #c68931, 800: #c07f29, 900: #b56d1b, A100: #fff5eb, A200: #ffdcb8, A400: #ffc385, A700: #ffb66b, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #000000, 400: #000000, 500: #000000, 600: #000000, 700: #000000, 800: #000000, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$md-primary: ( 50: #e6eae6, 100: #c1cac0, 200: #97a696, 300: #6d826c, 400: #4e684d, 500: #2f4d2d, 600: #2a4628, 700: #233d22, 800: #1d341c, 900: #122511, A100: #70ff66, A200: #40ff33, A400: #10ff00, A700: #0ee600, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+$md-warn: ( 50: #e9e8e6, 100: #c8c5c0, 200: #a39e97, 300: #7e776d, 400: #625a4d, 500: #463d2e, 600: #3f3729, 700: #372f23, 800: #2f271d, 900: #201a12, A100: #ffb863, A200: #ffa130, A400: #fc8a00, A700: #e37c00, contrast: ( 50: #000000, 100: #000000, 200: #000000, 300: #ffffff, 400: #ffffff, 500: #ffffff, 600: #ffffff, 700: #ffffff, 800: #ffffff, 900: #ffffff, A100: #000000, A200: #000000, A400: #000000, A700: #000000, ));
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$Budgeteer-primary: mat-palette($md-primary, 600);
+$Budgeteer-accent: mat-palette($md-accent, A200, A100, A400);
+// The warn palette is optional (defaults to red).
+$Budgeteer-warn: mat-palette($md-warn);
+// Create the theme object (a Sass map containing all of the palettes).
+$Budgeteer-theme: mat-light-theme($Budgeteer-primary, $Budgeteer-accent, $Budgeteer-warn);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($Budgeteer-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.leftAlign {
+    text-align: left;
+}
+
+.rightAlign {
+    text-align: right;
+}
+
+.fullWidth {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.justify-end {
+    display: flex;
+    justify-content: flex-end;
+}

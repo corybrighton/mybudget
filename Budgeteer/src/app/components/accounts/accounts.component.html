@@ -1,0 +1,20 @@
+<mat-grid-list cols="4" rowHeight="240px" guttersize="23px">
+
+    <mat-grid-tile colspan="4" *ngIf="!banks">
+        <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+    <mat-grid-tile *ngFor="let bank of banks">
+        <app-bank [bank]="bank"></app-bank>
+    </mat-grid-tile>
+
+    <mat-grid-tile *ngIf="banks">
+        <button mat-fab ripple color="primary" (click)="addBank()">
+            <mat-icon aria-hidden="false">add</mat-icon>
+        </button>
+    </mat-grid-tile>
+    <!-- <mat-grid-tile colspan="3">
+    <pre>
+      <code>{{ banks | json }}</code>
+    </pre>
+  </mat-grid-tile> -->
+</mat-grid-list>

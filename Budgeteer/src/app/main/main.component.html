@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+
+  <button mat-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="center-header">Budgeteer</span>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+    <mat-list>
+
+      <!-- Accounts Button -->
+      <mat-list-item>
+        <button mat-raised-button color="accent" (click)="openDrawer('accounts')">
+          <mat-icon> account_balance </mat-icon>
+          Accounts
+        </button>
+      </mat-list-item>
+
+      <!-- Weather Button -->
+      <mat-list-item>
+        <button mat-raised-button color="accent" (click)="openDrawer('weather')">Weather</button>
+      </mat-list-item>
+
+      <!-- Profile Button -->
+      <mat-list-item>
+        <button mat-raised-button color="accent" (click)="openDrawer('profile')">
+          <mat-icon>account_box</mat-icon>
+          Profile
+        </button>
+      </mat-list-item>
+
+      <mat-list-item>
+        <pre>
+          <code>{{ accountFlow | json }}</code>
+        </pre>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-profile *ngIf="openedDrawer == 'profile'"></app-profile>
+    <app-weather *ngIf="openedDrawer == 'weather'"></app-weather>
+    <app-accounts class="accounts_container" *ngIf="openedDrawer == 'accounts'"></app-accounts>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
