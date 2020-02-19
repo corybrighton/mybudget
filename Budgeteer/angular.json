@@ -131,5 +131,8 @@
       }
     }
   },
-  "defaultProject": "Budgeteer"
+  "defaultProject": "Budgeteer",
+  "cli": {
+    "analytics": "a5adfa69-2f41-4342-ab1b-77c62afcf2ef"
+  }
 }
