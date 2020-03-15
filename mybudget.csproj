@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,7 +10,8 @@
   <ItemGroup>
     <PackageReference Include="bcrypt.net-core" Version="1.6.0" />
     <PackageReference Include="dapper" Version="2.0.30" />
-    <PackageReference Include="MySqlConnector" Version="0.61.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.2" />
+    <PackageReference Include="MySqlConnector" Version="0.62.0" />
   </ItemGroup>
 
 </Project>

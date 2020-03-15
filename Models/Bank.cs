@@ -10,7 +10,7 @@ namespace mybudget.Models
 
   public class Bank
   {
-    public string Name { get; set; }
+    public BankDB Name { get; set; }
     public List<Account> Accounts { get; set; }
 
     public decimal Total { get; set; }

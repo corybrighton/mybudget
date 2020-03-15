@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace mybudget.Repositories
 {
-  public class AccountsRepository
+  public class BanksRepository
   {
     // private readonly IDbConnection _db;
     // public AccountsRepository(IDbConnection db)
@@ -11,85 +11,28 @@ namespace mybudget.Repositories
     //   _db = db;
     // }
 
-    IEnumerable<Bank> tempdata()
-    {
-      Account account = new Account()
-      {
-        Balance = 15.75M,
-        BankID = 1,
-        ID = 1,
-        Type = "Savings",
-        UserID = "user"
-      };
-      Account account1 = new Account()
-      {
-        Balance = 13.75M,
-        BankID = 1,
-        ID = 1,
-        Type = "Checking",
-        UserID = "user"
-      };
-      Account account2 = new Account()
-      {
-        Balance = 41.55M,
-        BankID = 2,
-        ID = 1,
-        Type = "Savings",
-        UserID = "user"
-      };
-      Bank bank1 = new Bank()
-      {
-        Name = new BankDB()
-        {
-          Name = "Wells Fargo",
-          BankID = 1
-        }
-      };
-      Bank bank2 = new Bank()
-      {
-        Name = new BankDB()
-        {
-          Name = "Credit Union",
-          BankID = 2
-        }
-      };
-      bank1.Accounts = new List<Account>();
-      bank1.Accounts.Add(account);
-      bank1.Accounts.Add(account1);
-      bank1.Total = bank1.getTotal();
-      bank2.Accounts = new List<Account>();
-      bank2.Accounts.Add(account2);
-      bank2.Total = bank2.getTotal();
-
-      List<Bank> Banks = new List<Bank>();
-      Banks.Add(bank1);
-      Banks.Add(bank2);
-
-      return Banks;
-    }
-
     // Return Banks and Accounts for user
-    public IEnumerable<Bank> GetUsersAccounts()
-    {
+    // public IEnumerable<Bank> GetUsersAccounts()
+    // {
 
-      return tempdata();
-      // return _db.Query<Account>("SELECT * FROM Keeps WHERE isPrivate = 0;");
-    }
+    //   return tempdata();
+    //   // return _db.Query<Account>("SELECT * FROM Keeps WHERE isPrivate = 0;");
+    // }
 
     // Get the total from all banks
-    public decimal GetFlow()
-    {
-      decimal total = 0;
-      IEnumerable<Bank> banks = tempdata();
-      foreach (Bank bank in banks)
-      {
-        foreach (Account account in bank.Accounts)
-        {
-          total += account.Balance;
-        }
-      }
-      return total;
-    }
+    // public decimal GetFlow()
+    // {
+    //   decimal total = 0;
+    //   IEnumerable<Bank> banks = tempdata();
+    //   foreach (Bank bank in banks)
+    //   {
+    //     foreach (Account account in bank.Accounts)
+    //     {
+    //       total += account.Balance;
+    //     }
+    //   }
+    //   return total;
+    // }
 
     public Bank editBank(Bank bank)
     {
