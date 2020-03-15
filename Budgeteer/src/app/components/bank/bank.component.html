@@ -16,11 +16,12 @@
     <mat-card-content>
         <p *ngFor="let account of bank.accounts" class="fullWidth">
             <span class="leftAlign">
-        {{account.name}}
+        {{account.Name}}
       </span>
             <span class="rightAlign">
-        {{account.balance}}
+        {{account.Balance}}
       </span>
         </p>
     </mat-card-content>
+    <code>{{bank}}</code>
 </mat-card>

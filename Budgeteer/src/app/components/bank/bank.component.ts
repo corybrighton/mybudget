@@ -8,12 +8,13 @@ import { AccountsService } from 'src/app/services/accounts.service';
   styleUrls: ['./bank.component.scss']
 })
 export class BankComponent implements OnInit {
-  editing: boolean = false;
+  editing = false;
 
   @Input() bank: Bank;
   constructor(private accountServe: AccountsService) { }
 
   ngOnInit() {
+    console.log(this.bank)
   }
 
   editBank() {
@@ -23,11 +24,11 @@ export class BankComponent implements OnInit {
   saveBank() {
     this.editing = false;
     this.accountServe.editBank(this.bank).subscribe(res => console.log(res));
-    // Todo save bank 
+    // Todo save bank
   }
 
   deleteBank() {
     // Todo delete Bank
-    console.log("Delete Bank")
+    console.log('Delete Bank');
   }
 }
