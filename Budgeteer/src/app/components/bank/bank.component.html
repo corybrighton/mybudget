@@ -6,7 +6,7 @@
     <mat-icon class="pointer" (click)="deleteBank()">delete_forever</mat-icon>
     <mat-icon class="pointer" (click)="saveBank()">save_alt</mat-icon>
   </span>
-    <mat-card-title> {{ bank.name }} </mat-card-title>
+    <mat-card-title> {{ bank.bankname.name }} </mat-card-title>
 
     <mat-card-subtitle>
         <span>
@@ -15,13 +15,14 @@
     </mat-card-subtitle>
     <mat-card-content>
         <p *ngFor="let account of bank.accounts" class="fullWidth">
-            <span class="leftAlign">
-        {{account.Name}}
-      </span>
-            <span class="rightAlign">
-        {{account.Balance}}
-      </span>
+          <span class="leftAlign">
+            {{account.type}}
+          </span>
+          <span class="rightAlign">
+            {{account.balance}}
+          </span>
+          <mat-icon *ngIf="account.flow" class="pointer">import_export</mat-icon>
+          <mat-icon *ngIf="!account.flow" class="pointer">arrow_downward</mat-icon>
         </p>
     </mat-card-content>
-    <code>{{bank}}</code>
 </mat-card>

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace mybudget.Models
 {
-  public class BankDB
+  public class BankName
   {
     public int BankID { get; set; }
     public string Name { get; set; }
@@ -10,7 +10,7 @@ namespace mybudget.Models
 
   public class Bank
   {
-    public BankDB Name { get; set; }
+    public BankName BankName { get; set; }
     public List<Account> Accounts { get; set; }
 
     public decimal Total { get; set; }

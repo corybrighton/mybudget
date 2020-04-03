@@ -8,6 +8,6 @@ namespace mybudget.Models
     public int BankID { get; set; }
     public decimal Balance { get; set; }
     public string UserID { get; set; }
-    public bool IncludeWorthStat { get; set; }
+    public bool Flow { get; set; }
   }
 }

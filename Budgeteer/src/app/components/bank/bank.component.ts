@@ -14,7 +14,7 @@ export class BankComponent implements OnInit {
   constructor(private accountServe: AccountsService) { }
 
   ngOnInit() {
-    console.log(this.bank)
+    console.log(this.bank);
   }
 
   editBank() {

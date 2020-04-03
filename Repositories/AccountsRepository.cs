@@ -1,5 +1,6 @@
-using mybudget.Models;
 using System.Collections.Generic;
+using System;
+using mybudget.Models;
 
 namespace mybudget.Repositories
 {
@@ -13,58 +14,43 @@ namespace mybudget.Repositories
 
     IEnumerable<Bank> tempdata()
     {
-      Account account = new Account()
-      {
-        Balance = 15.75M,
-        BankID = 1,
-        ID = 1,
-        Type = "Savings",
-        UserID = "user"
-      };
-      Account account1 = new Account()
-      {
-        Balance = 13.75M,
-        BankID = 1,
-        ID = 1,
-        Type = "Checking",
-        UserID = "user"
-      };
-      Account account2 = new Account()
-      {
-        Balance = 41.55M,
-        BankID = 2,
-        ID = 1,
-        Type = "Savings",
-        UserID = "user"
-      };
-      Bank bank1 = new Bank()
-      {
-        Name = new BankDB()
-        {
-          Name = "Wells Fargo",
-          BankID = 1
-        }
-      };
-      Bank bank2 = new Bank()
-      {
-        Name = new BankDB()
-        {
-          Name = "Credit Union",
-          BankID = 2
-        }
-      };
-      bank1.Accounts = new List<Account>();
-      bank1.Accounts.Add(account);
-      bank1.Accounts.Add(account1);
-      bank1.Total = bank1.getTotal();
-      bank2.Accounts = new List<Account>();
-      bank2.Accounts.Add(account2);
-      bank2.Total = bank2.getTotal();
+      string[] Banksarrys = { "Wells Fargo", "Credit Union", "Chase", "US Bank", "Idaho Credit Union"};
+
+      string[] AccountArray = { "Savings", "Checking", "Credit" };
+      Random rand = new Random();
 
       List<Bank> Banks = new List<Bank>();
-      Banks.Add(bank1);
-      Banks.Add(bank2);
 
+      for (int i = 0; i < Banksarrys.Length-1; i++)
+      {
+        Banks.Add(new Bank()
+        {
+          BankName = new BankName()
+          {
+            Name = Banksarrys[i],
+            BankID = i
+          }
+        });
+
+        Banks[i].Accounts = new List<Account>();
+        for (int j = 0; j < AccountArray.Length-1; j++)
+        {
+          Banks[i].Accounts.Add(
+            new Account()
+            {
+              Balance = Convert.ToDecimal(rand.NextDouble() * rand.Next(0, 1500)),
+              BankID = i,
+              ID = j+i,
+              Type = AccountArray[j],
+              UserID = "user"
+            }
+          );
+        }
+        
+        Banks[i].Total = Banks[i].getTotal();
+        
+      }
+      
       return Banks;
     }
 
