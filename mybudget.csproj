@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="bcrypt.net-core" Version="1.6.0" />
     <PackageReference Include="dapper" Version="2.0.30" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.0.0-preview-19075-0444" />
     <PackageReference Include="MySqlConnector" Version="0.62.0" />
   </ItemGroup>
 

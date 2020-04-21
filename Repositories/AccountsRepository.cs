@@ -14,14 +14,14 @@ namespace mybudget.Repositories
 
     IEnumerable<Bank> tempdata()
     {
-      string[] Banksarrys = { "Wells Fargo", "Credit Union", "Chase", "US Bank", "Idaho Credit Union"};
+      string[] Banksarrys = { "Wells Fargo", "Credit Union", "Chase", "US Bank", "Idaho Credit Union" };
 
       string[] AccountArray = { "Savings", "Checking", "Credit" };
       Random rand = new Random();
 
       List<Bank> Banks = new List<Bank>();
 
-      for (int i = 0; i < Banksarrys.Length-1; i++)
+      for (int i = 0; i < Banksarrys.Length - 1; i++)
       {
         Banks.Add(new Bank()
         {
@@ -33,24 +33,24 @@ namespace mybudget.Repositories
         });
 
         Banks[i].Accounts = new List<Account>();
-        for (int j = 0; j < AccountArray.Length-1; j++)
+        for (int j = 0; j < AccountArray.Length - 1; j++)
         {
           Banks[i].Accounts.Add(
             new Account()
             {
               Balance = Convert.ToDecimal(rand.NextDouble() * rand.Next(0, 1500)),
               BankID = i,
-              ID = j+i,
-              Type = AccountArray[j],
+              ID = j + i,
+              AccountType = AccountArray[j],
               UserID = "user"
             }
           );
         }
-        
+
         Banks[i].Total = Banks[i].getTotal();
-        
+
       }
-      
+
       return Banks;
     }
 

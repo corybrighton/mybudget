@@ -1,7 +1,9 @@
 export class Account {
   ID: number;
-  Name: string;
+  AccountType: string;
+  IsLoan: boolean;
   BankID: number;
   Uncleared: number;
   Balance: number;
+  IsFlow: boolean;
 }

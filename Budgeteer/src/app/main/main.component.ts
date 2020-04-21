@@ -11,10 +11,10 @@ export class MainComponent implements OnInit {
   accountFlow;
   opened = true;
   private drawers = {
-    profile: "profile",
-    weather: "weather",
-    accounts: "accounts"
-  }
+    profile: 'profile',
+    weather: 'weather',
+    accounts: 'accounts'
+  };
   openedDrawer: string = this.drawers.accounts;
 
   constructor(private accountService: AccountsService) { }

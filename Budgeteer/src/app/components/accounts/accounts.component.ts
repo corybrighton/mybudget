@@ -10,12 +10,12 @@ import { Bank } from '../../models/bank';
 export class AccountsComponent implements OnInit {
 
   banks: Bank[];
-  editing: boolean = false;
+  editing = false;
 
   constructor(private accountservice: AccountsService) { }
 
   ngOnInit() {
-    this.accountservice.getAccounts().subscribe(res => this.banks = res)
+    this.accountservice.getAccounts().subscribe(res => this.banks = res);
   }
 
   editBank() {
@@ -23,40 +23,42 @@ export class AccountsComponent implements OnInit {
   }
 
   addBank() {
-    let newBank: Bank =
-    {
+    const newBank: Bank = {
       ID: 4,
-      name: "New Bank",
+      BankName: 'New Bank',
       accounts: [
         {
           ID: 1,
-          Name: "Savings",
+          AccountType: 'Savings',
           BankID: 1,
           Uncleared: 0.23,
-          Balance: 43.75
+          Balance: 43.75,
+          IsFlow: true,
+          IsLoan: false
         }
       ],
       total: 102.1
-    }
+    };
     this.banks.push(newBank);
   }
 
   saveBank() {
-    let newBank: Bank =
-    {
+    const newBank: Bank = {
       ID: 12,
-      "name": "New Bank",
-      "accounts": [
+      BankName: 'New Bank',
+      accounts: [
         {
-          "ID": 1,
-          "Name": "Savings",
-          "BankID": 1,
-          "Uncleared": 0.23,
-          "Balance": 43.75
+          ID: 1,
+          AccountType: 'Savings',
+          BankID: 1,
+          Uncleared: 0.23,
+          Balance: 43.75,
+          IsFlow: false,
+          IsLoan: true
         }
       ],
-      "total": 102.1
-    }
+      total: 102.1
+    };
     this.accountservice.addBank(newBank).subscribe(res => console.log(res));
   }
 
