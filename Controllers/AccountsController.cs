@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using mybudget.Models;
@@ -24,13 +25,13 @@ namespace mybudget.Controllers
 
     //Get Accounts/flow
     [HttpGet("flow")]
-    public ActionResult<decimal> GetAccounts()
+    public ActionResult<decimal> GetFlow()
     {
       // string user = HttpContext.User.Identity.Name;
       // return (user is null) ? 
       // Unauthorized("You need to log in to get keeps") :
       // Ok(_repo.GetUsersKeeps(user));
-      return Ok(_repo.GetFlow());
+      return Ok(Math.Round(_repo.GetFlow(), 2));
     }
 
     // GET Keeps/5
