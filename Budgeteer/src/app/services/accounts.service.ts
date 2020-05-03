@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { Bank } from '../models/bank';
 
 
-const site = environment.site + "accounts";
+const site = environment.site + 'banks';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ export class AccountsService {
   constructor(private http: HttpClient) { }
 
   getAccountFlow(): Observable<any> {
-    return this.http.get(site + "/flow", httpOptions);
+    return this.http.get(site + '/flow', httpOptions);
   }
 
   getAccounts(): Observable<any> {
@@ -31,20 +31,20 @@ export class AccountsService {
   addBank(newBank: Bank): Observable<any> {
     return this.http.post<string>(site, newBank, httpOptions)
       .pipe(
-        catchError(this.handleError("addBank", newBank))
+        catchError(this.handleError('addBank', newBank))
       );
   }
 
   editBank(bank: Bank) {
-    return this.http.put<string>(site + "/" + bank.ID, bank, httpOptions)
+    return this.http.put<string>(site + '/' + bank.ID, bank, httpOptions)
       .pipe(
-        catchError(this.handleError("Edit Bank", bank))
+        catchError(this.handleError('Edit Bank', bank))
       );
   }
 
 
-  handleError(name: string, object: any): (err: any, caught: Observable<any>) => import("rxjs").ObservableInput<any> {
+  handleError(name: string, object: any): (err: any, caught: Observable<any>) => import('rxjs').ObservableInput<any> {
     console.log(`${name} did not work.`);
-    return
+    return;
   }
 }

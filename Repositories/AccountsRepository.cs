@@ -21,7 +21,7 @@ namespace mybudget.Repositories
 
       List<Bank> Banks = new List<Bank>();
 
-      for (int i = 0; i < Banksarrys.Length - 1; i++)
+      for (int i = 0; i < Banksarrys.Length; i++)
       {
         Banks.Add(new Bank()
         {
@@ -33,7 +33,7 @@ namespace mybudget.Repositories
         });
 
         Banks[i].Accounts = new List<Account>();
-        for (int j = 0; j < AccountArray.Length - 1; j++)
+        for (int j = 0; j < AccountArray.Length; j++)
         {
           Banks[i].Accounts.Add(
             new Account()
