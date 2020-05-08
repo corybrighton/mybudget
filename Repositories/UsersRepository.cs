@@ -4,12 +4,12 @@ using System.Linq;
 using mybudget.Models;
 using Dapper;
 
-namespace keepr.Repositories
+namespace mybudget.Repositories
 {
   public class UserRepository
   {
 
-    IDbConnection _db;
+    private readonly IDbConnection _db;
 
     public UserRepository(IDbConnection db)
     {

@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using System;
 using mybudget.Models;
+using System.Data;
 
 namespace mybudget.Repositories
 {
   public class AccountsRepository
   {
-    // private readonly IDbConnection _db;
-    // public AccountsRepository(IDbConnection db)
-    // {
-    //   _db = db;
-    // }
+    private readonly IDbConnection _db;
+    public AccountsRepository(IDbConnection db)
+    {
+      _db = db;
+    }
 
     IEnumerable<Bank> tempdata()
     {
