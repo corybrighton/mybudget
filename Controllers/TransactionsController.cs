@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using mybudget.Models;
-using mybudget.Repositories;
 
 namespace mybudget.Controllers
 {

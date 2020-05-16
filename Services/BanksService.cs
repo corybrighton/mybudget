@@ -13,6 +13,16 @@ namespace mybudget.Services
     {
       _repo = repo;
     }
+
+    internal object GetUsersAccounts()
+    {
+      return _repo.GetUsersAccounts();
+    }
+
+    internal object getFlow()
+    {
+      return _repo.GetFlow();
+    }
     // public IEnumerable<Keep> Get()
     // {
     //   return _repo.Get();

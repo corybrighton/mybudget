@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using mybudget.Models;
-using mybudget.Repositories;
+using mybudget.Services;
 
 namespace mybudget.Controllers
 {
@@ -9,17 +9,17 @@ namespace mybudget.Controllers
   [ApiController]
   public class BanksController : ControllerBase
   {
-    private readonly AccountsRepository _repo;
-    public BanksController(AccountsRepository repo)
+    private readonly BanksService _banksService;
+    public BanksController(BanksService banksService)
     {
-      _repo = repo;
+      _banksService = banksService;
     }
 
-    // GET Accounts
+    // GET Bank accounts
     [HttpGet]
     public ActionResult<List<Bank>> Get()
     {
-      return Ok(_repo.GetUsersAccounts());
+      return Ok(_banksService.GetUsersAccounts());
     }
 
     //Get Accounts/flow
@@ -30,7 +30,7 @@ namespace mybudget.Controllers
       // return (user is null) ? 
       // Unauthorized("You need to log in to get keeps") :
       // Ok(_repo.GetUsersKeeps(user));
-      return Ok(_repo.GetFlow());
+      return Ok(_banksService.getFlow());
     }
 
     // GET Keeps/5
@@ -49,31 +49,31 @@ namespace mybudget.Controllers
     // }
 
     // POST New Bank
-    [HttpPost]
-    public ActionResult<Bank> Post([FromBody] Bank bank)
-    {
-      // keep.UserId = HttpContext.User.Identity.Name;
-      // if (keep.UserId != null)
-      //   return Ok(_repo.AddKeep(keep));
-      // return Unauthorized();
-      return Ok(bank);
-    }
+    // [HttpPost]
+    // public ActionResult<Bank> Post([FromBody] Bank bank)
+    // {
+    //   // keep.UserId = HttpContext.User.Identity.Name;
+    //   // if (keep.UserId != null)
+    //   //   return Ok(_repo.AddKeep(keep));
+    //   // return Unauthorized();
+    //   return Ok(bank);
+    // }
 
     // PUT accounts/5
-    [HttpPut]
-    public ActionResult<Bank> Put([FromBody]Bank bank)
-    {
-      return Ok(_repo.editBank(bank));
-    }
+    // [HttpPut]
+    // public ActionResult<Bank> Put([FromBody] Bank bank)
+    // {
+    //   return Ok(_repo.editBank(bank));
+    // }
 
     // DELETE accounts/5
-    [HttpDelete("{id}")]
-    public ActionResult<string> Delete(int id)
-    {
-      if (_repo.DeleteBank(id)) { return Ok("Succssful Deleted"); }
-      // if (_repo.DeleteBank(id, HttpContext.User.Identity.Name)) { return Ok("Successfully Deleted"); }
-      return BadRequest("Unable to Delete");
-    }
+    // [HttpDelete("{id}")]
+    // public ActionResult<string> Delete(int id)
+    // {
+    //   if (_repo.DeleteBank(id)) { return Ok("Succssful Deleted"); }
+    //   // if (_repo.DeleteBank(id, HttpContext.User.Identity.Name)) { return Ok("Successfully Deleted"); }
+    //   return BadRequest("Unable to Delete");
+    // }
 
   }
 }
